@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "k95mJEqH5wcC+qc/D6D0bdv/KwKxYRsDiidYoODbjbAxmltqdcA86WJ3qEruE0bOAam14ScPECNkIdoy0vBSkA==",
+  "success": true,
+  "projectFilePath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gaura\\.nuget\\packages\\alpaca.markets\\6.0.6\\alpaca.markets.6.0.6.nupkg.sha512",
+    "C:\\Users\\gaura\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\gaura\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
+    "C:\\Users\\gaura\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
