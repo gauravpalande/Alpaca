@@ -6,8 +6,8 @@ namespace AlpacaExample
     internal static class Program
     {
         private const string KEY_ID = "";
-
         private const string SECRET_KEY = "";
+        private const string symbol = "BTCUSD";
 
         public static async Task Main()
         {
@@ -20,16 +20,17 @@ namespace AlpacaExample
                 Pause(1);
                 decimal currentTradePrice = GetCurrentPrice();
 
+                // On Buy
                 var buySteps = percentageLookup.Where(x => !x.Value && x.Key > currentTradePrice);
 
                 foreach (var buy in buySteps)
                 {
                     Pause(1);
-                    Console.WriteLine($"Buying for price: {buy.Key}");
+                    Console.WriteLine($"Buying Position: {buy.Key}, Price: {currentTradePrice}; Time: {DateTime.Now.ToString("F")}");
 
                     var tradeClient = Environments.Paper.GetAlpacaTradingClient(new SecretKey(KEY_ID, SECRET_KEY));
-                    await tradeClient.PostOrderAsync(OrderSide.Buy.Market("BTCUSD", OrderQuantity.FromInt64(1)));
-                    await tradeClient.PostOrderAsync(new NewOrderRequest("BTCUSD", OrderQuantity.Fractional(1), OrderSide.Sell, OrderType.Limit,
+                    await tradeClient.PostOrderAsync(OrderSide.Buy.Market(symbol, OrderQuantity.FromInt64(1)));
+                    await tradeClient.PostOrderAsync(new NewOrderRequest(symbol, OrderQuantity.Fractional(1), OrderSide.Sell, OrderType.Limit,
                         TimeInForce.Gtc)
                     {
                         LimitPrice = Math.Floor(buy.Key + (2 * tenYearHigh / 1000))
@@ -40,11 +41,12 @@ namespace AlpacaExample
                     Savelookup(percentageLookup);
                 }
 
+                // On Sell
                 var sellSteps = percentageLookup.Where(x => x.Value && x.Key < currentTradePrice - (2 * tenYearHigh / 1000));
 
                 foreach (var sell in sellSteps)
                 {
-                    Console.WriteLine($"Buying for price: {currentTradePrice}");
+                    Console.WriteLine($"Selling Position: {sell.Key}; Price: {currentTradePrice}; Time: {DateTime.Now.ToString("F")}");
 
                     percentageLookup[sell.Key] = false;
 
@@ -61,8 +63,11 @@ namespace AlpacaExample
         private static decimal GetCurrentPrice()
         {
             var currentTradeClient = Environments.Paper.GetAlpacaCryptoDataClient(new SecretKey(KEY_ID, SECRET_KEY));
-            var currentTradePrice = currentTradeClient.GetLatestTradeAsync(new LatestDataRequest("BTCUSD", CryptoExchange.Cbse)).Result.Price;
-            //Console.WriteLine($"Current Price: {currentTradePrice}");
+            var currentTradePrice = currentTradeClient.GetLatestTradeAsync(new LatestDataRequest(symbol, CryptoExchange.Cbse)).Result.Price;
+            if(DateTime.Now.Minute == 0 && DateTime.Now.Second == 0)
+            {
+                Console.WriteLine($"Current Price: {currentTradePrice}; Time: {DateTime.Now.ToString("F")}");
+            }
             return currentTradePrice;
         }
 
@@ -107,7 +112,7 @@ namespace AlpacaExample
         {
             var tenYearHighClient = Environments.Paper.GetAlpacaCryptoDataClient(new SecretKey(KEY_ID, SECRET_KEY));
 
-            var historicalBars = await tenYearHighClient.GetHistoricalBarsAsync(new HistoricalCryptoBarsRequest("BTCUSD", DateTime.Today.AddYears(-10),
+            var historicalBars = await tenYearHighClient.GetHistoricalBarsAsync(new HistoricalCryptoBarsRequest(symbol, DateTime.Today.AddYears(-10),
                 DateTime.Today, BarTimeFrame.Year));
 
             decimal tenYearHigh = 0;
