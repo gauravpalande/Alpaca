@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj": {}
+    "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj": {}
   },
   "projects": {
-    "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj": {
+    "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj",
-        "projectName": "AlpacaFirst",
-        "projectPath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj",
+        "projectUniqueName": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj",
+        "projectName": "AlpacaCrypto",
+        "projectPath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj",
         "packagesPath": "C:\\Users\\gaura\\.nuget\\packages\\",
         "outputPath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\obj\\",
         "projectStyle": "PackageReference",

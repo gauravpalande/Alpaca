@@ -10,37 +10,53 @@
           "System.IO.Pipelines": "6.0.3"
         },
         "compile": {
-          "lib/net6.0/Alpaca.Markets.dll": {}
+          "lib/net6.0/Alpaca.Markets.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Alpaca.Markets.dll": {}
+          "lib/net6.0/Alpaca.Markets.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Polly/7.2.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Polly.dll": {}
+          "lib/netstandard2.0/Polly.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Polly.dll": {}
+          "lib/netstandard2.0/Polly.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "System.IO.Pipelines/6.0.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.IO.Pipelines.dll": {}
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/System.IO.Pipelines.dll": {}
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -158,9 +174,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj",
-      "projectName": "AlpacaFirst",
-      "projectPath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj",
+      "projectUniqueName": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj",
+      "projectName": "AlpacaCrypto",
+      "projectPath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj",
       "packagesPath": "C:\\Users\\gaura\\.nuget\\packages\\",
       "outputPath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\obj\\",
       "projectStyle": "PackageReference",
@@ -202,7 +218,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -211,7 +228,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

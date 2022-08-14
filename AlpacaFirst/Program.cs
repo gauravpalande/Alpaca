@@ -26,11 +26,11 @@ namespace AlpacaExample
                 foreach (var buy in buySteps)
                 {
                     Pause(1);
-                    Console.WriteLine($"Buying Position: {buy.Key}, Price: {currentTradePrice}; Time: {DateTime.Now.ToString("F")}");
+                    Console.WriteLine($"Buying Position: {buy.Key}, Price: {currentTradePrice}; Time: {DateTime.Now:F}");
 
                     var tradeClient = Environments.Paper.GetAlpacaTradingClient(new SecretKey(KEY_ID, SECRET_KEY));
                     await tradeClient.PostOrderAsync(OrderSide.Buy.Market(symbol, OrderQuantity.FromInt64(1)));
-                    await tradeClient.PostOrderAsync(new NewOrderRequest(symbol, OrderQuantity.Fractional(1), OrderSide.Sell, OrderType.Limit,
+                    await tradeClient.PostOrderAsync(new NewOrderRequest(symbol, OrderQuantity.FromInt64(1), OrderSide.Sell, OrderType.Limit,
                         TimeInForce.Gtc)
                     {
                         LimitPrice = Math.Floor(buy.Key + (2 * tenYearHigh / 1000))
@@ -46,7 +46,7 @@ namespace AlpacaExample
 
                 foreach (var sell in sellSteps)
                 {
-                    Console.WriteLine($"Selling Position: {sell.Key}; Price: {currentTradePrice}; Time: {DateTime.Now.ToString("F")}");
+                    Console.WriteLine($"Selling Position: {sell.Key}; Price: {currentTradePrice}; Time: {DateTime.Now:F}");
 
                     percentageLookup[sell.Key] = false;
 
@@ -62,11 +62,19 @@ namespace AlpacaExample
 
         private static decimal GetCurrentPrice()
         {
-            var currentTradeClient = Environments.Paper.GetAlpacaCryptoDataClient(new SecretKey(KEY_ID, SECRET_KEY));
-            var currentTradePrice = currentTradeClient.GetLatestTradeAsync(new LatestDataRequest(symbol, CryptoExchange.Cbse)).Result.Price;
-            if(DateTime.Now.Minute == 0 && DateTime.Now.Second == 0)
+            var currentTradePrice = 0m;
+            try
             {
-                Console.WriteLine($"Current Price: {currentTradePrice}; Time: {DateTime.Now.ToString("F")}");
+                var currentTradeClient = Environments.Paper.GetAlpacaCryptoDataClient(new SecretKey(KEY_ID, SECRET_KEY));
+                currentTradePrice = currentTradeClient.GetLatestTradeAsync(new LatestDataRequest(symbol, CryptoExchange.Cbse)).Result.Price;
+                //if (DateTime.Now.Minute % 5 == 0 && DateTime.Now.Second == 0)
+                //{
+                    Console.WriteLine($"Current Price: {currentTradePrice}; Time: {DateTime.Now:F}");
+                //}
+            }
+            catch
+            {
+                Console.WriteLine("Log: Error in getting cuurent price occurred");
             }
             return currentTradePrice;
         }

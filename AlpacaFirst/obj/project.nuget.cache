@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k95mJEqH5wcC+qc/D6D0bdv/KwKxYRsDiidYoODbjbAxmltqdcA86WJ3qEruE0bOAam14ScPECNkIdoy0vBSkA==",
+  "dgSpecHash": "HUFZ+rT9WgcwaBhHRhUQikor1Sjpi1YrHFOO7LgZQk+YtbKViajBS0nTT2CYAupfYG41+/tYKEaRvxAtjMDy0w==",
   "success": true,
-  "projectFilePath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaFirst.csproj",
+  "projectFilePath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaFirst\\AlpacaCrypto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gaura\\.nuget\\packages\\alpaca.markets\\6.0.6\\alpaca.markets.6.0.6.nupkg.sha512",
     "C:\\Users\\gaura\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
