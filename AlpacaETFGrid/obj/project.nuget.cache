@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "p+NfmclYbclsoBJb33X+DIdNwTcJMXODy90a6FJYWT70WGX8FlbMtnRI/TL+CCeojsL94woqTd4+/VC6SZgNVA==",
+  "success": true,
+  "projectFilePath": "G:\\My Drive\\Finance\\Alpaca\\AlpacaETFGrid\\AlpacaETFGrid.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gaura\\.nuget\\packages\\alpaca.markets\\6.0.6\\alpaca.markets.6.0.6.nupkg.sha512",
+    "C:\\Users\\gaura\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\gaura\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
+    "C:\\Users\\gaura\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
